@@ -1,0 +1,14 @@
+# Fdb version 4
+["xdvipdfmx"] 0 "voorstel.xdv" "voorstel.pdf" "voorstel" 0 -1
+  "voorstel.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "voorstel.pdf"
+  (rewritten before read)
+["xelatex"] 0 "voorstel.tex" "voorstel.xdv" "voorstel" 0 -1
+  "voorstel.aux" 0 -1 0 "xelatex"
+  "voorstel.tex" 0 -1 0 ""
+  (generated)
+  "voorstel.aux"
+  "voorstel.log"
+  "voorstel.xdv"
+  (rewritten before read)
