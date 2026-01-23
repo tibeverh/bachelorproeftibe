@@ -1,53 +1,49 @@
 %---------- Inleiding ---------------------------------------------------------
 
-% TODO: Is dit voorstel gebaseerd op een paper van Research Methods die je
-% vorig jaar hebt ingediend? Heb je daarbij eventueel samengewerkt met een
-% andere student?
-% Zo ja, haal dan de tekst hieronder uit commentaar en pas aan.
-
-%\paragraph{Opmerking}
-
-% Dit voorstel is gebaseerd op het onderzoeksvoorstel dat werd geschreven in het
-% kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
-% uitgewerkt (met medesturent VOORNAAM NAAM als mede-auteur).
-% 
-
 \section{Inleiding}%
 \label{sec:inleiding}
 
-In moderne zorglabos groeit het aantal verbonden apparaten snel. Denk dan maar aan IoT-apparatuur die continu data uitwisselen. De huidige WiFi-infrastructuren botsen echter op beperkingen zoals interferentie, beperkte dekking en uitdagingen rond schaalbaarheid en beveiliging.
+In moderne zorglabs groeit het aantal verbonden apparaten snel. Denk dan maar aan IoT-apparatuur die continu data uitwisselen. De huidige WiFi-infrastructuren botsen echter op beperkingen zoals interferentie, beperkte dekking en uitdagingen rond schaalbaarheid en beveiliging.
 
-5G biedt een oplossing door hogere bandbreedte en lagere latentie te hebben dan WiFi, evenals een hogere mate van mobiliteit en betere ondersteuning voor IoT-communicatie. In het zorglab komt daarom de vraag of 5G een geschikte en veilige technologie is om bestaande en toekomstige toestellen te verbinden.
+5G biedt een oplossing door hogere bandbreedte en lagere latentie te hebben dan WiFi, evenals een hogere mate van mobiliteit en betere ondersteuning voor IoT-communicatie. In het zorg lab komt daarom de vraag of 5G een geschikte en veilige technologie is om bestaande en toekomstige toestellen te verbinden.
 
 Tegelijkertijd brengt 5G ook nieuwe risico’s met zich mee. Voorbeelden zijn kwetsbaarheden in slicing-architecturen, configuratiefouten in private 5G-netwerken, mogelijke interceptie van gevoelige gezondheidsdata en de nood aan sterk device- en SIM-beheer. Voor zorginstellingen, waar dataveiligheid kritiek is, is het essentieel om deze risico’s grondig te begrijpen.
 
 De doelgroep van dit onderzoek bestaat uit IT-beheerders, cybersecurity-specialisten en onderzoekers binnen de zorgsector die veilige 5G-connectiviteit willen realiseren.
 
-
+%---------------------------------------------------------------------------
 \section{Hoofdonderzoeksvraag}
 
-\textbf{Hoe kan 5G op een veilige en technisch haalbare manier worden geïmplementeerd op zorglab-toestellen, en welke beveiligingsrisico’s en mitigerende maatregelen moeten daarbij in rekening worden gebracht?}
+\textbf{Hoe kan een private 5G-netwerkomgeving veilig en technisch haalbaar worden opgezet en geconfigureerd voor zorglabtoestellen, en welke beveiligingsmaatregelen zijn hierbij noodzakelijk?}
 
 \vspace{1em}
 
+%---------------------------------------------------------------------------
 \section{Deelvragen -- Probleemdomein}
 
 \begin{enumerate}
 	\item Op welke manieren kunnen zorglab-toestellen technisch gekoppeld worden aan een 5G-netwerk?
 	\item Welke vereisten en beperkingen hebben deze toestellen op het vlak van connectiviteit, latency, energieverbruik en protocolondersteuning?
-	\item Welke beveiligingsrisico’s brengt 5G-connectiviteit met zich mee binnen een zorgomgeving?
+	\item Welke beveiligingsrisico's brengt 5G-connectiviteit met zich mee binnen een zorg omgeving?
+\end{enumerate}
+
+\clearpage  % of \newpage
+
+\begin{enumerate}
+	\setcounter{enumi}{3}  % Doorgaan vanaf item 4
 	\item Welke standaarden en best practices bestaan er rond beveiligde 5G- en IoT-communicatie in de zorgsector?
 \end{enumerate}
 
 \vspace{1em}
 
+%---------------------------------------------------------------------------
 \section{Deelvragen -- Oplossingsdomein}
 
 \begin{enumerate}
-	\item Welke beveiligingsmaatregelen zijn noodzakelijk om zorglab-devices veilig via 5G te verbinden (encryptie, segmentatie, SIM-beheer, private 5G, \dots)?
-	\item Hoe kan toegang tot deze apparaten veilig worden geauthenticeerd en gecontroleerd?
-	\item Hoe kan netwerkcommunicatie worden gemonitord en geanalyseerd op dreigingen via 5G-specifieke detectiemethoden?
-	\item Welke concrete implementatiestrategie (private 5G, slicing, dedicated APN, \dots) is het meest geschikt voor het zorglab?
+	\item Welke beveiligingsmaatregelen zijn noodzakelijk om zorglab-devices veilig via private 5G te verbinden?
+	\item Hoe kan toegang tot deze apparaten veilig worden geauthentiseerd  en gecontroleerd?
+	\item Hoe kan het netwerkverkeer van zorglab toestellen via 5G worden gemonitord en geanalyseerd op beveiligingsrisico’s?
+	\item In welke mate is private 5G technisch haalbaar (latency, stabiliteit) voor gebruik binnen het zorglab omgeving?
 \end{enumerate}
 
 %---------- Stand van zaken ---------------------------------------------------
@@ -55,11 +51,13 @@ De doelgroep van dit onderzoek bestaat uit IT-beheerders, cybersecurity-speciali
 \section{Literatuurstudie}%
 \label{sec:literatuurstudie}
 
-Onderzoek stelt verschillende risico's voor 5G-netwerken in kritieke omgevingen vast. \textcite{ENISA2022} bespreekt mogelijke kwetsbaarheden in 5G-kernarchitecturen, waaronder configuratiefouten, slicing-kwetsbaarheden en verhoogde risico's door virtualisatie. Volgens \textcite{GSMA2023} vereist 5G door zijn complexiteit extra veiligheidslagen, waaronder strengere authenticatie, integriteit van signaling en enhanced encryption. Verder tonen studies aan dat medische IoT-toestellen vaak beperkte beveiligingscapaciteiten hebben, wat risico's verhoogt bij integratie in geavanceerde netwerken zoals 5G \autocite{IoTStudy2023}.
+Onderzoek stelt verschillende risico's voor 5G-netwerken in kritieke omgevingen vast. \textcite{ENISA2022} bespreekt mogelijke kwetsbaarheden in 5G-kernarchitecturen, waaronder configuratiefouten, slicing-kwetsbaarheden en verhoogde risico's door virtualisatie. Volgens \textcite{GSMA2023} vereist 5G door zijn complexiteit extra veiligheidslagen, waaronder strengere authenticatie, integriteit van signaling en enhanced encryption. Verder tonen studies aan dat medische IoT-toestellen vaak beperkte beveiligingscapaciteiten hebben, wat risico's verhoogt bij integratie in geavanceerde netwerken zoals 5G .
 
-De 3GPP-standaard TS 33.501 \autocite{3GPP2024} beschrijft beveiligingsarchitecturen binnen het 5G-ecosysteem, waaronder mutual authentication, SEPP-beveiliging en user-plane-encryption. \textcite{IBMSecurity2023} en andere industriële richtlijnen benadrukken het belang van device-lifecycle-management, SIM/eSIM-beveiliging, netwerksegmentatie en zero-trust-modellen voor 5G-IoT-omgevingen. Daarnaast bestaan er succesvolle implementaties van private 5G-netwerken in industriële en medische contexten, wat mogelijkheden biedt voor gecontroleerde en sterk beveiligde experimenten in een zorglabomgeving.
+De 3GPP-standaard TS~33.501 \autocite{3GPP2024} beschrijft beveiligingsarchitecturen binnen het 5G-ecosysteem, waaronder mutual authentication, SEPP-beveiliging en user-plane-encryption. \textcite{IBMSecurity2023} en andere industriële richtlijnen benadrukken het belang van device-lifecycle-management, SIM/eSIM-beveiliging, netwerksegmentatie en zero-trust-modellen voor 5G-IoT-omgevingen. Daarnaast bestaan er succesvolle implementaties van private 5G-netwerken in industriële en medische contexten, wat mogelijkheden biedt voor gecontroleerde en sterk beveiligde experimenten in een zorglab omgeving.
 
 %---------- Methodologie ------------------------------------------------------
+\needspace{15\baselineskip}
+
 \section{Methodologie}%
 \label{sec:methodologie}
 
@@ -69,25 +67,27 @@ Het onderzoek wordt uitgevoerd in vijf iteratieve sprints. Door deze aanpak kunn
 
 \section*{Sprint 1}
 
-In de eerste sprint wordt een uitgebreid overzicht opgesteld van verschillende 5G-technologieën en netwerkarchitecturen, samen met een lijst van mogelijke risico’s en dreigingen voor IoT-apparaten. Hiervoor worden literatuurbronnen geraadpleegd. Elke bevinding wordt systematisch gedocumenteerd in een tabel, waarin onder andere de aard van het risico, de vereiste toegangsrechten en de potentiële impact op de zorgomgeving worden weergegeven. De sprint wordt afgesloten met een risicomatrix waarin de impact en de exploitatiemoeilijkheid van de geïdentificeerde risico’s worden beoordeeld, toegespitst op de context van zorglabtoestellen.
+In de eerste sprint wordt een uitgebreid overzicht opgesteld van verschillende 5G-technologieën en netwerkarchitecturen, samen met een lijst van mogelijke risico’s en dreigingen voor IoT-apparaten. Hiervoor worden literatuurbronnen geraadpleegd. Elke bevinding wordt systematisch gedocumenteerd in een tabel, waarin onder andere de aard van het risico, de vereiste toegangsrechten en de potentiële impact op de zorgomgeving worden weergegeven. De sprint wordt afgesloten met een risicomatrix waarin de impact en de exploitatiemoeilijkheid van de geïdentificeerde risico’s worden beoordeeld, toegespitst op de context van zorglab-toestellen.
 
 \section*{Sprint 2}
 
-In de tweede sprint wordt de huidige architectuur van de zorglabtoestellen en hun netwerk bestudeerd en gedocumenteerd. Dit omvat het opstellen van een catalogus van de toestellen en hun connectiviteitseisen. Daarnaast wordt gekeken of de apparaten compatibel zijn met 5G. Ook wordt er een matrix met eisen opgesteld waarin latency, gebruikte protocollen en throughput-eisen worden vastgelegd. Op basis van deze analyse wordt een testomgeving opgezet die de praktijkomgeving nabootst. Deze omgeving bevat niet alleen de apparaten uit het zorglab, maar ook een aanvals-VM voor beveiligingstesten en eventueel een monitoring-VM en management-VM. Het resultaat van deze sprint is een testomgeving en een gemodelleerde praktijkconfiguratie, inclusief motivering van eventuele vereenvoudigingen.
+In de tweede sprint wordt de huidige architectuur van de zorglab-toestellen en hun netwerk bestudeerd en gedocumenteerd. Dit omvat het opstellen van een overzicht van de toestellen en hun connectiviteitseisen. Daarnaast wordt gekeken of de apparaten compatibel zijn met private 5G. Ook wordt er naar connectiviteit, latency, protocolgebruik en beveiligingsvereisten gekeken. Op basis van deze analyse wordt een private 5G testomgeving opgezet en ontworpen.
 
 \section*{Sprint 3}
 
-In de derde sprint wordt een proof-of-concept opgezet waarin de belangrijkste kwetsbaarheden en configuratie-eigenschappen van de toestellen worden getest in de labomgeving. De nadruk ligt op realistische scenario’s, zoals het testen van connectiviteit, stabiliteit en latentie van de 5G-verbinding, maar ook het evalueren van de effectiviteit van beveiligingsmaatregelen. Bij elke test worden logs verzameld, bijvoorbeeld netwerklogs en configuratie-instellingen. De sprint resulteert in een dataset van PoC-scripts, configuratiebestanden en meetgegevens die later gebruikt worden voor analyse en rapportage.
+In de derde sprint wordt een private 5G proof-of-concept opgezet
+in een gecontroleerde testomgeving. Deze POC bestaat uit een softwarematige private 5g core, sim gebaseerde authenticatie en een zorglab-toestel of een gelijkaardig iot-apparaat. Het toestel wordt via 5G verbonden met het netwerk, waarna connectiviteit, IP-toewijzing, latency en stabiliteit worden getest.
 
 \section*{Sprint 4}
 
-In de vierde sprint ligt de focus op de securityanalyse en het ontwerpen van mitigaties. Aan de hand van deliverables uit voorgaande sprints wordt een STRIDE-analyse uitgevoerd om de belangrijkste dreigingen te identificeren. Voor de dreigingen wordt een set concrete mitigaties opgesteld, afgestemd op de zorglabomgeving. Mogelijke aanbevelingen omvatten het segmenteren van netwerkverkeer en het afdwingen van sterke wachtwoorden. De deliverables van deze sprint zijn een STRIDE-matrix en een conceptversie van het beveiligingsadvies.
+In de vierde sprint ligt de focus op de securityanalyse en het ontwerpen van mitigaties. Aan de hand van het opgebouwde private 5G omgeving wordt een STRIDE-analyse uitgevoerd om de belangrijkste dreigingen te identificeren.
 
 \section*{Sprint 5}
 
-In de vijfde sprint worden alle resultaten samengebracht in een eindrapport en een presentatie. De presentatie brengt de belangrijkste bevindingen en aanbevelingen op een begrijpelijke, technisch onderbouwde manier over. Alle technische artefacten, zoals scripts, configuraties en netwerklogs, worden beheerd in een versiebeheersysteem zodat verdere opvolging en implementatie mogelijk is.
+In de vijfde sprint worden alle resultaten samengebracht in een eindrapport en een presentatie.
 
 %---------- Verwachte resultaten ----------------------------------------------
+
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
 
@@ -95,31 +95,36 @@ In de vijfde sprint worden alle resultaten samengebracht in een eindrapport en e
 
 Op basis van literatuur en initieel onderzoek wordt verwacht dat:
 
-\begin{itemize}[left=0pt,label=\textbullet]
-    \item 5G technisch haalbaar is voor de meeste zorglab-toestellen.
-    \item Private 5G of slicing de meest geschikte implementatieopties zijn voor een zorgomgeving.
-    \item Bepaalde 5G-specifieke risico’s (slicing-isolatie, SIM-beheer, signalling-security) sterk relevant zullen blijken.
-    \item Een aantal toestellen mogelijks bijkomende beveiligingslagen nodig heeft vanwege beperkte cryptografische capaciteiten.
-    \item De proof-of-concept zal aantonen dat sterke authenticatie, segmentatie en continue monitoring noodzakelijk zijn om 5G veilig te gebruiken.
+\begin{itemize}
+	\item Private-5G technisch haalbaar is voor het verbinden van zorglab-toestellen.
+	\item private 5G of netwerksegmentatie binnen 5G de meest geschikte implementatievormen blijken voor een zorglab omgeving.
+	\item specifieke 5G-gerelateerde beveiligingsrisico’s zoals SIM-beheer en netwerksegmentatie relevant zullen blijken binnen een zorgcontext.
+	\item zorglab-toestellen bijkomende beveiligingsmaatregelen nodig hebben.
+	\item Continue monitoring en sterke authenticatie noodzakelijk zijn.
+\end{itemize}
+De bachelor proef resulteert daarnaast in:
+\begin{itemize}
+	\item een werkende private 5G proof-of-concept
+	\item gedocumenteerde netwerk- en beveiligingsconfiguraties
+	\item een beveiligingsanalyse van de opgebouwde testomgeving
+	\item concrete en toepasbare aanbevelingen voor zorginstellingen.
 \end{itemize}
 
 \section*{Conclusie}
 
-De bachelorproef zal een reproduceerbare testomgeving, configuratieaanbevelingen en een beveiligingsrapport opleveren dat meteen toepasbaar is binnen het zorglab en vergelijkbare medische omgevingen.
+In deze bachelor proef wordt onderzocht of het mogelijk is om 
+zorglab-toestellen op een veilige en technisch haalbare manier te 
+verbinden via een private 5G-netwerkomgeving. Hiervoor wordt een 
+praktische proof-of-concept opgezet in een gecontroleerde testomgeving.
 
 
-\begin{thebibliography}{9}
+Binnen deze testomgeving ligt de focus op netwerkconfiguratie en 
+beveiliging, zoals SIM-gebaseerde authenticatie, netwerksegmentatie en 
+monitoring. Aan de hand van deze proof-of-concept wordt de haalbaarheid 
+van private 5G voor gebruik in een zorglab geëvalueerd.
 
-\bibitem{3GPP2024}
-3GPP. (2024). \textit{5G system security architecture (TS 33.501)}. 3rd Generation Partnership Project.
 
-\bibitem{ENISA2022}
-European Union Agency for Cybersecurity. (2022). \textit{ENISA threat landscape for 5G networks}. ENISA.
-
-\bibitem{GSMA2023}
-GSMA. (2023). \textit{Security considerations for 5G networks}. GSMA Intelligence.
-
-\bibitem{IBMSecurity2023}
-IBM Security. (2023). \textit{Best practices for securing IoT devices over 5G networks}. IBM Whitepaper.
-
-\end{thebibliography}
+De bachelor proef zal resulteren in een werkende testopstelling, 
+gedocumenteerde netwerk- en beveiligingsconfiguraties en een 
+beveiligingsanalyse. Deze resultaten kunnen dienen als een leidraad voor het zorglab.
+\needspace{15\baselineskip}
