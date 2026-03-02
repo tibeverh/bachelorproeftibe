@@ -1,51 +1,240 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
 \label{ch:stand-van-zaken}
 
+
 % Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe
 % dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het
 % bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
+\section{inleiding}
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+Door de digitalisering in de zorgsector neemt het aantal medische apparaten die verbonden zijn met het internet sterk toe. Dit zijn internet of things (IOT) apparaten. Deze IOT apparaten verzamelen, verwerken en versturen continu gevoelige patiëntdata. Daarom stellen deze apparaten hoge eisen aan het netwerk dat het gebruikt, volgens het artikel ENISA threat landscape for 5G Networks vereisen ze lage latentie, hoge beschikbaarheid en robuuste beveiliging \textcite{ENISA2022}.
+\vspace{0.5cm}
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
+Het huidige netwerkinfrastructuur in de meeste zorglabs gebruiken meestal wifi. Hoewel Wifi breed beschikbaar is en redelijk eenvoudig te implementeren is heeft het een paar belangrijke beperkingen. Interferentie, beperkte dekking in bepaalde ruimtes, schaalbaarheidsproblemen bij een een groeiend aantal apparaten en beveiligingsuitdagingen vormen structurele knelpunten. Daarboven op biedt wifi geen garantie over de latentie of beschikbaarheid, wat wel heel belangrijk is voor bepaalde zorgtoepassingen.
+\vspace{0.5cm}
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+Private 5g-netwerken worden steeds vaker voorgesteld als een alternatief omdat het een hogere betrouwbaarheid, lagere latentie en betere beveiliging biedt volgens \autocite{ProximusNXT}. In tegenstelling tot publieke 5G-netwerken waar het netwerkbeheer word beheert door een ander bedrijf, blijft bij private 5G alle data volledig binnen de organisatie en heet de organisatie zelf volledige controle over het netwerkverkeer. Dit is zeer handig voor zorglabs, waar gegevensbescherming cruciaal is.
+\vspace{0.5cm}
 
-Let er ook op: het \texttt{cite}-commando voor de punt, dus binnen de zin. Je verwijst meteen naar een bron in de eerste zin die erop gebaseerd is, dus niet pas op het einde van een paragraaf.
+Tegelijkertijd brengt de implementatie van private 5G ook nieuwe uitdagingen met zich mee, het is zeer belangrijk dat er hier dan ook naar gekeken word. De complexiteit van de technologie, de integratie met bestaande IoT-toestellen en specifieke beveiligingsrisico's zoals kwetsbaarheden in de 5G-kernarchitectuur en SIM-gebaseerde authenticatie vereisen grondig onderzoek\autocite{3GPP2024,ENISA2022}.
+\vspace{0.5cm}
+\vspace{0.5cm}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{grail.jpg}
-  \caption[Voorbeeld figuur.]{\label{fig:grail}Voorbeeld van invoegen van een figuur. Zorg altijd voor een uitgebreid bijschrift dat de figuur volledig beschrijft zonder in de tekst te moeten gaan zoeken. Vergeet ook je bronvermelding niet!}
-\end{figure}
+Deze literatuurstudie onderzoekt de technische en beveiligingsaspecten van private 5G-connectiviteit voor zorglab-toestellen. Er wordt ingegaan op de architectuur van 5G, de specifieke vereisten van IoT in de zorg, de beveiligingsrisico's, bestaande standaarden en de technische haalbaarheid. De studie vormt de basis voor een proof-of-concept binnen een gecontroleerde testomgeving.
 
-\begin{listing}
-  \begin{minted}{python}
-    import pandas as pd
-    import seaborn as sns
+\section{Private 5G: definitie en architectuur}
 
-    penguins = sns.load_dataset('penguins')
-    sns.relplot(data=penguins, x="flipper_length_mm", y="bill_length_mm", hue="species")
-  \end{minted}
-  \caption[Voorbeeld codefragment]{Voorbeeld van het invoegen van een codefragment.}
-\end{listing}
+Private 5G-netwerken zijn 5G netwerken zijn lokaal beheerde 5G netwerken  Die gebruikmaken van gelicentieerd, gedeeld of vrij spectrum. Ze worden volledig beheerd door de organisatie zelf maar het kan ook beheerd worden door een externe partij in opdracht van de organisatie. In tegenstelling tot publieke 5G-netwerken, waarbij gebruikers het netwerk delen met andere organisaties en individuen, blijft bij private 5G  volgens \autocite{ProximusNXT}  alle data binnen de organisatie en heeft de instelling volledige controle over netwerkconfiguratie, beveiliging en kwaliteitsparameters.
+\vspace{0.5cm}
 
-\lipsum[7-20]
+\autocite{Aijaz2020} definieert private 5G als "een 5G-netwerk dat is ontworpen voor exclusief gebruik door één enkele organisatie, met volledige controle over netwerkfuncties, spectrum en data". Deze definitie beschrijft 2 van de belangrijkste aspecten van private 5g en wat het aantrekkelijk maakt, namelijk exclusiviteit en controle. Met exclusiviteit word er bedoelt dat de netwerkcapacitieti niet word gedeeld met externe gebruikers maar exclusief word gebruikt voor de organisatie, dit zorgt voor meer voorspelbare prestaties. Controle verwijst naar de mogelijkheid om het netwerk aan te passen aan specifieke toepassingen zoals bv zorg-IoT.
+\vspace{0.5cm}
 
-\begin{table}
-  \centering
-  \begin{tabular}{lcr}
-    \toprule
-    \textbf{Kolom 1} & \textbf{Kolom 2} & \textbf{Kolom 3} \\
-    $\alpha$         & $\beta$          & $\gamma$         \\
-    \midrule
-    A                & 10.230           & a                \\
-    B                & 45.678           & b                \\
-    C                & 99.987           & c                \\
-    \bottomrule
-  \end{tabular}
-  \caption[Voorbeeld tabel]{\label{tab:example}Voorbeeld van een tabel.}
-\end{table}
+\autocite{Wen2021} voegen hieraan toe dat private 5G-netwerken kunnen worden geïmplementeerd in verschillende configuraties, afhankelijk van de behoeften van de organisatie:
+\begin{itemize}
+	\item \textbf{Volledig standalone private 5G:} Alle netwerkcomponenten (radio, core, edge) bevinden zich on-premise en worden volledig beheerd door de organisatie.
+	\item \textbf{Gedeelde infrastructuur met private core:} De radio-infrastructuur wordt gedeeld met een operator, maar de core-netwerkfuncties zijn privaat en on-premise.
+	\item \textbf{Network slicing as a service:} Een operator levert een geïsoleerde network slice op zijn publieke infrastructuur, die functioneert als een virtueel privaat netwerk.
+\end{itemize}
+\vspace{0.5cm}
 
+De architectuur van 5G-netwerken verschilt fundamenteel van voorgaande generaties mobiele netwerken. Waar 4G-netwerken nog grotendeels gebaseerd waren op gespecialiseerde hardware, maakt 5G gebruik van een service-gebaseerde architectuur die sterk leunt op virtualisatie en softwarematige netwerkfuncties \autocite{3GPP2024}.
+\vspace{0.5cm}
+
+Voor private 5G-implementaties zijn vooral de volgende componenten relevant \autocite{3GPP2024}:
+
+\begin{itemize}
+	\item \textbf{Access and Mobility Management Function (AMF):} Verantwoordelijk voor verbindings- en mobiliteitsbeheer van gebruikersapparaten. In een private 5G-context kan de AMF worden geconfigureerd om specifieke mobiliteitspatronen van zorgpersoneel en -apparatuur te ondersteunen.
+	\item \textbf{Session Management Function (SMF):} Beheert datasessies en IP-adrestoewijzing. Voor zorgtoepassingen kan de SMF prioritair verkeer voor kritieke toepassingen garanderen.
+	\item \textbf{User Plane Function (UPF):} Verwerkt het gebruikersdataverkeer en fungeert als gateway tussen het 5G-netwerk en externe netwerken. In private 5G-implementaties wordt de UPF vaak on-premise geplaatst om data lokaal te houden en latentie te minimaliseren.
+	\item \textbf{Authentication Server Function (AUSF):} Ondersteunt de authenticatie van gebruikers en apparaten. Voor zorg-IoT is dit cruciaal om enkel geautoriseerde apparaten toegang te verlenen.
+	\item \textbf{Network Slice Selection Function (NSSF):} Selecteert de juiste network slice voor een bepaalde dienst of toepassing. Dit maakt het mogelijk om verschillende zorgtoepassingen met uiteenlopende vereisten te ondersteunen op één fysieke infrastructuur.
+\end{itemize}
+\vspace{0.5cm}
+
+\textcite{Giordani2020} is de flexibiliteit van deze architectuur bijzonder waardevol voor private implementaties, omdat organisaties enkel de functies kunnen implementeren die ze nodig hebben en deze kunnen aanpassen aan specifieke use cases.
+\vspace{0.5cm}
+
+Een belangrijk concept binnen 5G is network slicing. Een network slice is een logisch, geïsoleerd netwerk dat draait op een gedeelde fysieke infrastructuur. Elke slice kan worden geoptimaliseerd voor specifieke vereisten wat betreft latentie, bandbreedte, betrouwbaarheid en beveiliging \autocite{3GPP2024}.
+
+Voor zorgtoepassingen biedt network slicing aanzienlijke voordelen \autocite{Rost2017}:
+
+\begin{itemize}
+	\item \textbf{Kritieke zorgtoepassingen:} Realtime patiëntmonitoring kan worden ondergebracht in een slice met gegarandeerde lage latentie en hoge beschikbaarheid.
+	\item \textbf{Minder kritieke toepassingen:} Uploaden van logbestanden of firmware-updates kan in een aparte slice met lagere prioriteit plaatsvinden.
+	\item \textbf{Beveiligingsisolatie:} Door strikte isolatie tussen slices hebben beveiligingsincidenten in de ene slice geen impact op andere slices.
+\end{itemize}
+\vspace{0.5cm}
+
+\textcite{Zhang2019} benadrukken dat network slicing in private 5G-netwerken eenvoudiger te realiseren is dan in publieke netwerken, omdat de volledige infrastructuur onder controle is van één organisatie. Dit vereenvoudigt de configuratie en het beheer van slices.
+\vspace{0.5cm}
+
+\section{IoT in de zorgsector: kenmerken en vereisten}
+
+Volgens \textcite{SAPnzd} is Internet of Things een netwerk van verbonden objecten en apparaten die sensoren bezitten waarmee ze data kunnen verzenden en ontvangen van en naar andere dingen en systemen.  In de zorgsector spreekt men meer van het Internet of Medical Things (IoMT) of zorg-IoT. Dit gaat over een breed Assortiment van apparaten, met eenvoudige tot ingewikkelde diagnostische toestellen.
+\vspace{0.5cm}
+
+Er zijn een paar verschillende categorieën van zorg-IoT:
+
+\begin{enumerate}
+	\item \textbf{Draagbare patiëntmonitors:} Apparaten die continu vitale parameters meten zoals hartslag, bloeddruk, zuurstofsaturatie en temperatuur. Deze toestellen sturen data vaak realtime door naar een centraal monitoringsysteem.
+	\item \textbf{Medische behandelingsapparatuur:} Infuuspompen, ventilatoren en dialyseapparaten die kunnen worden bediend of gecontroleerd via het netwerk.
+	\item \textbf{Diagnostische apparatuur:} Beeldvormingsapparaten (MRI, CT, echografie) en laboratoriumanalyseapparaten die grote hoeveelheden data genereren.
+	\item \textbf{Omgevingssensoren:} Sensoren die temperatuur, vochtigheid, luchtkwaliteit of beweging meten in zorgruimtes.
+	\item \textbf{Asset tracking:} Apparaten die de locatie van medische apparatuur, medicatie of patiënten volgen.
+\end{enumerate}
+\vspace{0.5cm}
+
+Elke categorie stelt specifieke eisen aan het netwerk wat betreft latentie, bandbreedte, betrouwbaarheid en beveiliging.
+\vspace{0.5cm}
+
+De connectiviteitsvereisten van zorg-IoT-toestellen verschillen sterk naargelang de toepassing van het toestel.\textcite{ENISA2022} identificeert de volgende kritische parameters:
+\vspace{0.5cm}
+
+Latentie: Voor realtime monitoring en controletoepassingen is lage latentie essentieel. Een infuuspomp die op afstand wordt bediend, vereist een reactietijd van enkele milliseconden om veilig te kunnen functioneren. Voor het uploaden van meetgegevens van een laboratoriumapparaat is latentie minder kritisch.
+\vspace{0.5cm}
+
+Bandbreedte: Diagnostische apparatuur zoals MRI-scanners kan grote hoeveelheden data genereren. Een enkele MRI-scan kan meerdere gigabytes aan data opleveren die moeten worden overgedragen voor opslag of verdere analyse. Andere toepassingen, zoals temperatuursensoren, sturen slechts kleine datapakketjes.
+\vspace{0.5cm}
+
+Betrouwbaarheid en beschikbaarheid: Voor kritieke zorgtoepassingen is netwerkuitval onaanvaardbaar. Een onderbroken verbinding met een patiëntmonitor kan levensbedreigende situaties veroorzaken. \textcite{ENISA2022} stelt dat voor dergelijke toepassingen een beschikbaarheid van 99,999 procent of hoger vereist is.
+\vspace{0.5cm}
+
+Beveiliging: Medische gegevens zijn bijzonder gevoelig en vallen onder strikte regelgeving zoals de Algemene Verordening Gegevensbescherming (AVG) in Europa. Datalekken kunnen leiden tot identiteitsfraude, chantage of reputatieschade. Bovendien kunnen beveiligingsincidenten de werking van medische apparatuur verstoren, met directe gevolgen voor patiëntveiligheid \autocite{ENISA2022}.
+\vspace{0.5cm}
+
+De integratie van bestaande zorg-IoT-toestellen in private 5G-netwerken brengt specifieke uitdagingen met zich mee :
+\vspace{0.5cm}
+
+Compatibiliteit: Veel bestaande IoT-toestellen ondersteunen enkel WiFi, Bluetooth of bedrade connectiviteit. Voor deze toestellen zijn 5G-gateways of -adapters nodig, wat extra kost en complexiteit met zich meebrengt.
+\vspace{0.5cm}
+
+Levenscyclusbeheer: Medische apparatuur heeft vaak een levensduur van 10 jaar of langer. Toestellen die vandaag worden geïnstalleerd, moeten gedurende hun hele levensduur kunnen blijven functioneren in een evoluerende netwerkomgeving.
+\vspace{0.5cm}
+
+Beperkte verwerkingscapaciteit: Veel IoT-toestellen hebben beperkte rekenkracht en geheugen. Dit maakt het moeilijk om sterke encryptie of complexe authenticatieprotocollen te implementeren die in 5G-netwerken worden gebruikt.
+\vspace{0.5cm}
+
+Stroomvoorziening: Sommige IoT-toestellen werken op batterij en moeten energiezuinig zijn. De hogere complexiteit van 5G-communicatie kan leiden tot hoger energieverbruik.
+\vspace{0.5cm}
+
+\section{Beveiligingsrisico's van private 5G in zorgomgevingen}
+
+Hoewel private 5G-netwerken meer controle bieden dan publieke 5G netwerken, hebben ze nog steeds beveiligingsrisico's. Het ENISA Threat Landscape for 5G Networks \autocite{ENISA2022} stelt een breed assortiment aan kwetsbaarheden op die ook relevant zijn voor private 5G implementaties.
+\vspace{0.5cm}
+
+\textbf{Virtualisatie-risico's:} Private 5G-netwerken maken sterk gebruik van virtualisatie. Netwerkfuncties draaien als software op gedeelde hardware-infrastructuren. Dit brengt enkele risico's met zich mee:
+
+\begin{itemize}
+	\item Onvoldoende isolatie tussen virtuele netwerkfuncties.
+	\item Kwetsbaarheden in de virtualisatielaag.
+	\item Aanvallen op het orchestratie- en beheersysteem.
+	\item Configuratiefouten in virtuele netwerkfuncties.
+\end{itemize}
+\vspace{0.5cm}
+
+\textbf{Slicing-kwetsbaarheden:} Network slicing vereist strikte isolatie tussen de slices. Onvoldoende isolatie kan ervoor zorgen dat een aanval op één slice impact heeft op andere slices in het netwerk. \autocite{ENISA2022} wijst op risico's zoals:
+
+\begin{itemize}
+	\item Onjuiste configuratie van slice-isolatie.
+	\item Kwetsbaarheden in de slice-orchestrator.
+	\item Aanvallen op het slicing-beheersysteem.
+	\item Resource-uitputting door een kwaadaardige slice.
+\end{itemize}
+\vspace{0.5cm}
+
+Configuratiefouten: Door de complexiteit van 5G-netwerken is de kans op configuratiefouten groot. Fouten in toegangscontroles, encryptie-instellingen of netwerksegmentatie kunnen leiden tot beveiligingslekken.
+\vspace{0.5cm}
+
+Supply chain-risico's: Private 5G-netwerken maken gebruik van componenten van verschillende leveranciers. Dit vergroot het aanvalsoppervlakte en maakt het moeilijker om de integriteit van alle componenten te garanderen. Kwaadaardige aanpassingen in hardware of software kunnen leiden tot backdoors of datalekken \autocite{ENISA2022}.
+\vspace{0.5cm}
+
+Zorg-IoT-toestellen voegen een extra laag van complexiteit toe aan het beveiligingsvraagstuk. Deze apparaten zijn vaak ontworpen met beperkte beveiligingsmechanismen. \textcite{Exein2025} Zegt dat  De convergentie van de gezondheidszorg en het Internet of Things deuren opent naar een reeks cyberbeveiligingsdreigingen in de gezondheidszorg, namelijk op het gebied van de beveiliging van medische apparatuur en patiëntgegevens.
+\vspace{0.5cm}
+
+Beperkte beveiligingscapaciteiten: Veel IoT-toestellen ondersteunen enkel eenvoudige, en verouderde beveiligingsmechanismen. Dit maakt het moeilijk om gebruik te maken van de geavanceerde beveiligingsfuncties die 5G biedt.
+\vspace{0.5cm}
+
+Lange levenscyclus: Medische apparatuur heeft vaak een levensduur van 10 jaar of langer. Gedurende deze periode kunnen nieuwe kwetsbaarheden worden ontdekt waarvoor geen patches meer beschikbaar zijn.
+\vspace{0.5cm}
+
+Fysieke toegankelijkheid: IoT-toestellen bevinden zich vaak in openbare of semi-openbare ruimtes, waardoor ze fysiek toegankelijk zijn voor mensen met slechte bedoelingen. Een aanvaller met fysieke toegang kan zomaar proberen het apparaat te manipuleren, geheugenchips uit te lezen of een kwaadaardig apparaat aan te sluiten.
+\vspace{0.5cm} 
+
+Gebrek aan standaardisatie: De IoT-markt is gefragmenteerd met tal van protocollen, formaten en beveiligingsmechanismen. Dit maakt het moeilijk om uniforme beveiligingsmaatregelen te implementeren over verschillende toestellen heen.
+\vspace{0.5cm}
+
+Volgens \autocite{ENISA2022} zijn er een paar specifieke aanvalsvectoren voor zorg-IoT in 5G-netwerken:
+
+\begin{itemize}
+	\item \textbf{Device spoofing:} Een aanvaller doet zich voor als een legitiem IoT-toestel om toegang te krijgen tot het netwerk of om valse data te injecteren.
+	\item \textbf{Man-in-the-middle:} Het onderscheppen en mogelijk wijzigen van communicatie tussen IoT-toestel en backend-systemen.
+	\item \textbf{Data-interceptie:} Het onderscheppen van gevoelige medische gegevens tijdens transmissie.
+	\item \textbf{Denial of service:} Het overbelasten van IoT-toestellen of netwerkcomponenten om de beschikbaarheid van zorgtoepassingen te verstoren.
+	\item \textbf{Firmware-aanvallen:} Het manipuleren van de firmware van IoT-toestellen om kwaadaardige functionaliteit toe te voegen.
+\end{itemize}
+\vspace{0.5cm}
+Private 5G-netwerken maken gebruik van SIM-gebaseerde authenticatie voor toegangscontrole. Dit brengt specifieke risico's met zich mee in een zorgcontext 
+\vspace{0.5cm}
+\textbf{SIM-beheer:} In een private 5G-omgeving is de organisatie zelf verantwoordelijk voor het volledige lifecycle management van SIM-kaarten of eSIM-profielen. Dit omvat:
+
+\begin{itemize}
+	\item Uitgifte en activering van nieuwe SIM-kaarten
+	\item Configuratie van authenticatieparameters
+	\item Intrekking van SIM-kaarten bij verlies, diefstal of buitengebruikstelling
+	\item Periodieke hernieuwing van sleutelmateriaal
+\end{itemize}
+
+\textbf{Risico's bij SIM-beheer:}  
+
+\begin{itemize}
+	\item \textbf{Verlies of diefstal van SIM-kaarten:} Fysieke SIM-kaarten kunnen verloren gaan of gestolen worden. Een aanvaller met een gestolen SIM-kaart kan zich voordoen als een legitiem apparaat.
+	\item \textbf{Onvoldoende opslag van geheime sleutels:} De cryptografische sleutels op SIM-kaarten moeten veilig worden opgeslagen en beheerd.
+	\item \textbf{Compromittering van het beheersysteem:} Het systeem waarmee SIM-kaarten worden beheerd, is een kritiek aanvalsobjectief.
+	\item \textbf{eSIM-kwetsbaarheden:} Bij gebruik van eSIM komen bijkomende risico's kijken, zoals kwetsbaarheden in het remote provisioning-proces.
+\end{itemize}
+\vspace{0.5cm}
+Het is essentieel dat organisaties die private 5G implementeren voor hun netwerk, beschikken over robuuste processen en systemen voor SIM-beheer.
+\vspace{0.5cm}
+\section{Standaarden en best practices voor beveiligde private 5G-IoT-communicatie}
+De 3GPP TS 33.501-standaard beschrijft de beveiligingsarchitectuur voor 5G-netwerken. Voor private 5G-implementaties zijn volgende elementen bijzonder relevant \autocite{3GPP2024}.
+\vspace{0.5cm}
+Mutual authentication: Zowel het apparaat als het netwerk authenticeren zich wederzijds. Dit voorkomt dat apparaten verbinding maken met valse netwerken en dat niet geautoriseerde apparaten toegang krijgen tot het netwerk.
+\vspace{0.5cm}
+User-plane encryptie: Alle gebruikersdata wordt versleuteld tussen het apparaat en de UPF. Dit beschermt tegen afluisteren en manipulatie van data.
+\vspace{0.5cm}
+Integrity protection: Signaleringsverkeer tussen apparaat en netwerk wordt beschermd tegen manipulatie. Dit voorkomt dat aanvallers signaling-berichten kunnen veranderen.
+\vspace{0.5cm}
+SEPP-beveiliging: Security Edge Protection Protectors (SEPP) beveiligen de communicatie tussen verschillende 5G-netwerken. Voor private 5G-netwerken die verbinding maken met externe netwerken is dit essentieel.
+\vspace{0.5cm}
+Subscription Concealed Identifier (SUCI): In 5G wordt de permanente identiteit van de gebruiker (SUPI) niet in helder formaat over de lucht verstuurd. In plaats daarvan wordt een geconcealde versie (SUCI) gebruikt, wat privacy verbetert.
+\vspace{0.5cm}
+\section{Technische haalbaarheid van private 5G in zorglabs}
+\vspace{0.5cm}
+Een van de belangrijkste argumenten voor private 5G in zorgomgevingen is de belofte van lage latentie en hoge stabiliteit. \autocite{LowLatency2018} onderzochten de latentieprestaties van 5G-netwerken voor IoT-toepassingen en concludeerden dat:
+
+\begin{itemize}
+	\item Voor niet-kritieke toepassingen zijn latenties van 20--50 ms haalbaar.
+	\item Voor kritieke toepassingen zijn latenties onder 5 ms mogelijk met edge computing en geoptimaliseerde netwerkconfiguratie.
+	\item De betrouwbaarheid van 5G-verbindingen is hoger dan bij WiFi, vooral in omgevingen met veel interferentie.
+\end{itemize}
+\vspace{0.5cm}
+Voor zorgtoepassingen betekent dit dat private 5G kan voldoen aan de strengste eisen als het netwerk correct wordt geconfigureerd en geoptimaliseerd voor de specifieke use case.
+\vspace{0.5cm}
+Een belangrijke uitdaging bij de implementatie van private 5G in zorglabs is de integratie van bestaande IoT-toestellen. Veel van deze toestellen 5G nog niet volgens \autocite{HFCLnzd}.
+\vspace{0.5cm}
+
+Voor de integratie van deze toestellen in een 5G-omgeving zijn er een paar verschillende opties mogelijk:
+\vspace{0.5cm}
+
+5G-gateways: Een gateway werkt als een brug tussen niet-5G-apparaten en het 5G-netwerk. De gateway verbindt via WiFi of Bluetooth met de IoT-toestellen en vertaalt het verkeer naar 5G. Dit is een snel en effectieve oplossing voor bestaande toestellen, maar introduceert een extra potentieel falen en vereist zorgvuldige beveiliging\autocite{Khanh2022}.
+\vspace{0.5cm}
+
+5G-adapters: Voor sommige toestellen kunnen 5G-adapters worden toegevoegd, bijvoorbeeld via USB of een uitbreidingsslot. Dit is echter niet voor alle toestellen mogelijk\autocite{Barros2023}.
+
+\vspace{0.5cm}
+Vervanging: Voor kritieke toestellen of oudere toestellen, kan er worden gekozen voor  ze te vervangen met modellen met ingebouwde 5G-ondersteuning. Dit is de duurste oplossing op lange termijn.
+\vspace{0.5cm}
+Hybride netwerk: In een fase waar al sommige toestellen worden vervangen met 5G compatibele toestellen kan er worden gekozen voor een hybride netwerk waarin zowel WiFi als 5G wordt ondersteund. Dit biedt flexibiliteit, maar verhoogt de complexiteit van het netwerkbeheer\autocite{Frazer2025}.

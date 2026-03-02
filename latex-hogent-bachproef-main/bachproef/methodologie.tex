@@ -5,26 +5,30 @@
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}%
 \label{ch:methodologie}
 
-%% TODO: In dit hoofstuk geef je een korte toelichting over hoe je te werk bent
-%% gegaan. Verdeel je onderzoek in grote fasen, en licht in elke fase toe wat
-%% de doelstelling was, welke deliverables daar uit gekomen zijn, en welke
-%% onderzoeksmethoden je daarbij toegepast hebt. Verantwoord waarom je
-%% op deze manier te werk gegaan bent.
-%% 
-%% Voorbeelden van zulke fasen zijn: literatuurstudie, opstellen van een
-%% requirements-analyse, opstellen long-list (bij vergelijkende studie),
-%% selectie van geschikte tools (bij vergelijkende studie, "short-list"),
-%% opzetten testopstelling/PoC, uitvoeren testen en verzamelen
-%% van resultaten, analyse van resultaten, ...
-%%
-%% !!!!! LET OP !!!!!
-%%
-%% Het is uitdrukkelijk NIET de bedoeling dat je het grootste deel van de corpus
-%% van je bachelorproef in dit hoofstuk verwerkt! Dit hoofdstuk is eerder een
-%% kort overzicht van je plan van aanpak.
-%%
-%% Maak voor elke fase (behalve het literatuuronderzoek) een NIEUW HOOFDSTUK aan
-%% en geef het een gepaste titel.
+\section*{Onderzoeksaanpak}
 
-\lipsum[21-25]
+Het onderzoek wordt uitgevoerd in vijf iteratieve sprints. Door deze aanpak kunnen tussentijdse bevindingen snel worden verwerkt en kan de focus bijgestuurd worden op basis van de resultaten uit eerdere sprints indien dit nodig is. Elke sprint levert concrete resultaten op die dienen als input voor de volgende fase van het onderzoek.
+
+\section*{Sprint 1}
+
+In de eerste sprint wordt een uitgebreid overzicht opgesteld van verschillende 5G-technologieën en netwerkarchitecturen, samen met een lijst van mogelijke risico’s en dreigingen voor IoT-apparaten. Hiervoor worden literatuurbronnen geraadpleegd. Elke bevinding wordt systematisch gedocumenteerd in een tabel, waarin onder andere de aard van het risico, de vereiste toegangsrechten en de potentiële impact op de zorgomgeving worden weergegeven. De sprint wordt afgesloten met een risicomatrix waarin de impact en de exploitatiemoeilijkheid van de geïdentificeerde risico’s worden beoordeeld, toegespitst op de context van zorglab-toestellen.
+
+\section*{Sprint 2}
+
+In de tweede sprint wordt de huidige architectuur van de zorglab-toestellen en hun netwerk bestudeerd en gedocumenteerd. Dit omvat het opstellen van een overzicht van de toestellen en hun connectiviteitseisen. Daarnaast wordt gekeken of de apparaten compatibel zijn met private 5G. Ook wordt er naar connectiviteit, latency, protocolgebruik en beveiligingsvereisten gekeken. Op basis van deze analyse wordt een private 5G testomgeving opgezet en ontworpen.
+
+\section*{Sprint 3}
+
+In de derde sprint wordt een private 5G proof-of-concept opgezet
+in een gecontroleerde testomgeving. Deze POC bestaat uit een softwarematige private 5g core, sim gebaseerde authenticatie en een zorglab-toestel of een gelijkaardig iot-apparaat. Het toestel wordt via 5G verbonden met het netwerk, waarna connectiviteit, IP-toewijzing, latency en stabiliteit worden getest.
+
+\section*{Sprint 4}
+
+In de vierde sprint ligt de focus op de securityanalyse en het ontwerpen van mitigaties. Aan de hand van het opgebouwde private 5G omgeving wordt een STRIDE-analyse uitgevoerd om de belangrijkste dreigingen te identificeren.
+
+\section*{Sprint 5}
+
+In de vijfde sprint worden alle resultaten samengebracht in een eindrapport en een presentatie.
+
+
 
